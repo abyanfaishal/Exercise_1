@@ -8,7 +8,8 @@ package no4568;
 
 public class ArrayLinearList implements LinearList {
     protected Object [] element, element2; 
-    protected int size; 
+    protected int size;
+   
     
         public ArrayLinearList(int initialCapacity){
         if(initialCapacity < 1)
@@ -110,13 +111,8 @@ public class ArrayLinearList implements LinearList {
     
     @Override
     public void trimToSize(){
-        element2 = new Object[size];
-        if(size < element.length){
-            System.arraycopy(element, 0, element2, 0, size);
-            
-            element = element2;
-        }
-         }
+    	element = ChangeArrayLength.changeLength1D(element, size, size);
+    }
     
     @Override
     public Object setSize(int no){
@@ -146,5 +142,30 @@ public class ArrayLinearList implements LinearList {
             element[i] = null;
         }
         return size;
+    }
+    
+    public void removeRange(int start, int finish)
+    {
+       if (start < 0)
+          start = 0;
+       if (finish > size)
+          finish = size;
+       if (start >= finish)
+          return;
+
+
+       int numberAtRightOfRange = size - finish;
+       System.arraycopy(element, finish, element, start, numberAtRightOfRange);
+
+
+       int newSize = start + numberAtRightOfRange;
+       while (size != newSize)
+          element[--size] = null;   
+    }
+
+    public Object clone(Object[] a) {
+        a = new Object[size];
+        a = element.clone();
+        return toString();
     }
 }

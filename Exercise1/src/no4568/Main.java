@@ -6,12 +6,15 @@
 package no4568;
 
 
+
 public class Main {
     public static void main(String[] args) {
-        ArrayLinearList x = new ArrayLinearList(8);
+        ArrayLinearList x = new ArrayLinearList(16);
+        Object[] b = new Object[20];
+        
         
         System.out.println("Ukuran awal Array   : " +x.element.length);
-        System.out.println("Apakah Array kosong : " +x.isEmpty());
+        System.out.println("isEmpty : " +x.isEmpty());
         
         x.add(0, "a");
         x.add(1, "b");
@@ -38,6 +41,11 @@ public class Main {
         x.add(10, 6);
         
         System.out.println("\nIsi setelah ditambah 3 Array baru : " +x.toString());
+        
+        System.out.println("Setelah di clone ke Object F   : " +x.clone(b));
+        System.out.println(x.size);
+        x.removeRange(1, 3);
+        System.out.println("\nIsi setelah element 1 - 3 dihapus : " +x.toString());
         System.out.println("Jumlah Array sebelum dipotong     : " +x.element.length);
         x.trimToSize();
         System.out.println("Jumlah Array setelah dipotong     : " +x.element.length);
@@ -45,5 +53,7 @@ public class Main {
         System.out.println("Isi Array setelah di setSize 5    : " +x.toString());
         x.clear();
         System.out.println("Isi Array setelah di clear        : " +x.toString());
+        
+        
     }
 }
