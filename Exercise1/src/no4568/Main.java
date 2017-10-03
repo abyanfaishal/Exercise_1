@@ -43,7 +43,7 @@ public class Main {
         System.out.println("\nIsi setelah ditambah 3 Array baru : " +x.toString());
         
         System.out.println("Setelah di clone ke Object F   : " +x.clone(b));
-        System.out.println(x.size);
+        //System.out.println(x.size);
         x.removeRange(1, 3);
         System.out.println("\nIsi setelah element 1 - 3 dihapus : " +x.toString());
         System.out.println("Jumlah Array sebelum dipotong     : " +x.element.length);
