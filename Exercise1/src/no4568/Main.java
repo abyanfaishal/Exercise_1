@@ -6,7 +6,6 @@
 package no4568;
 
 
-
 public class Main {
     public static void main(String[] args) {
         ArrayLinearList x = new ArrayLinearList(16);
